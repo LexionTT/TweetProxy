@@ -1,20 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="jumbotron">
     <h3>Displaying last {{ tweetnum }} tweets for user <strong>{{ screen_name }}</strong></h3>
-    
-    <div class="panel-group" id="accordion">
         {% for i in 1..tweetnum %}
             <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ i }}">Tweet {{ i }}</a>
-                </h4>
-              </div>
-              <div id="collapse{{ i }}" class="panel-collapse collapse">
-                <div class="panel-body">{{ tweets[i-1] }}</div>
-              </div>
+              <div class="panel-body">{{ tweets[i-1] }}</div>
             </div>
         {% endfor %}
-    </div>
+</div>
 {% endblock %}
