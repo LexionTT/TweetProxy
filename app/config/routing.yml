@@ -1,0 +1,20 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+    
+homepage:
+    pattern:  /
+    defaults: { _controller: AppBundle:Twitter:index }
+    
+search:
+    path:      /search
+    defaults:  { _controller: AppBundle:Twitter:search }
+    methods:  [GET]
+
+tweet_user:
+    path:      /{screen_name}
+    defaults:  { _controller: AppBundle:Twitter:show }
+    requirements:
+        path: "^(?!search)"
+    methods:  [GET]
+    

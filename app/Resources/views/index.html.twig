@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+    <div class="alert alert-warning">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Notice!</strong> {{ flashMessage }}
+    </div>
+    {% endfor %}
+    
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Screen Name</th>
+        <th>Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+{% for user in pagination %}
+<tr {% if loop.index is odd %}class="color"{% endif %}>
+    <td>{{ user.ScreenName}}</td>
+    <td>{{ user.name }}</td>
+    <td><a href="/{{ user.ScreenName }}" class="btn btn-success btn-medium" role="button">View</a></td>
+</tr>
+{% endfor %}
+</table>
+{# display navigation #}
+<div class="navigation" align="center">
+    {{ knp_pagination_render(pagination) }}
+</div>
+    
+{% endblock %}

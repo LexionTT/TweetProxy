@@ -1,0 +1,38 @@
+<?php
+
+// src/AppBundle/Entity/User.php
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="tweets")
+ */
+class Tweet
+{
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $tweet;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $screen_name;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    protected $created_at;
+
+
+
+}
